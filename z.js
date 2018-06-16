@@ -271,10 +271,7 @@ const updateNode = (domNode, diff, state, domBuilder) => {
 
     if(!f.isEmpty(add) && !f.isEmpty(sub)) {
 	
-	console.log("Removing ", domNode, " and adding ", domBuilder(add, state));
     parentNode.replaceChild(domBuilder(add, state), domNode);
-
-	console.log("Now the state is", parentNode.outerHTML);
 
     }
 
@@ -282,11 +279,7 @@ const updateNode = (domNode, diff, state, domBuilder) => {
 
     else if(!f.isEmpty(sub)) {
 
-	console.log("Removing: ", domNode, "from ", parentNode);
-
 	parentNode.removeChild(domNode);
-
-	console.log("Gives: ", parentNode.outerHTML);
 
     }
 
@@ -341,8 +334,6 @@ const renderDiff = (domNode, diff, state, domBuilder) => {
 	let {textNode = {}, node = {}, attrs = {}, contents = []} = diff;
 
 	if(!f.isEmpty(node) && (node["add"] || node["sub"])) {
-
-	    console.log("Going to update ", domNode.outerHTML, "with ", node);
 
 	    updateNode(domNode, node, state, domBuilder);
 
@@ -468,7 +459,6 @@ const render = async (parentNode, view, state = {}, {normalizer = normalize, dom
     if(state.pastView) {
 
 	let delta = diff(state.pastView, view);
-	f.log(delta);
 
 	renderDiff(parentNode.firstChild, delta, state, domBuilder);
 
