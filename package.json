@@ -1,0 +1,14 @@
+{
+  "name": "template",
+  "version": "0.0.1",
+  "description": "Quick start for Zahar apps.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bunchaeffinamateurs <bunchaeffinamateurs@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "xila": "0.0.11"
+  }
+}
